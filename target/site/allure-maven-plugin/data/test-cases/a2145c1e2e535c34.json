@@ -1,0 +1,84 @@
+{
+  "uid" : "a2145c1e2e535c34",
+  "name" : "Создание пользователя без имени",
+  "fullName" : "tests.UserCreationTest.createUserWithoutNameShouldReturn403",
+  "historyId" : "52cfbc6d711bfdef871963b4bbfb0aca",
+  "time" : {
+    "start" : 1769577789315,
+    "stop" : 1769577789449,
+    "duration" : 134
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Регистрация нового пользователя",
+      "time" : {
+        "start" : 1769577789315,
+        "stop" : 1769577789417,
+        "duration" : 102
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "models.User@23b62cc3"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "tests"
+  }, {
+    "name" : "testClass",
+    "value" : "tests.UserCreationTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "createUserWithoutNameShouldReturn403"
+  }, {
+    "name" : "suite",
+    "value" : "tests.UserCreationTest"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-HLRPAQP"
+  }, {
+    "name" : "thread",
+    "value" : "12920@DESKTOP-HLRPAQP.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "a2145c1e2e535c34.json",
+  "parameterValues" : [ ]
+}

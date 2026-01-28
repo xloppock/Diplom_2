@@ -1,0 +1,84 @@
+{
+  "uid" : "a2ef7d0c97d2652f",
+  "name" : "Создание пользователя без пароля",
+  "fullName" : "tests.UserCreationTest.createUserWithoutPasswordShouldReturn403",
+  "historyId" : "4f94f9dadce82da8a46dadb6ae52522",
+  "time" : {
+    "start" : 1769577790399,
+    "stop" : 1769577790519,
+    "duration" : 120
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Регистрация нового пользователя",
+      "time" : {
+        "start" : 1769577790400,
+        "stop" : 1769577790487,
+        "duration" : 87
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "models.User@3b802baa"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "tests"
+  }, {
+    "name" : "testClass",
+    "value" : "tests.UserCreationTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "createUserWithoutPasswordShouldReturn403"
+  }, {
+    "name" : "suite",
+    "value" : "tests.UserCreationTest"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-HLRPAQP"
+  }, {
+    "name" : "thread",
+    "value" : "12920@DESKTOP-HLRPAQP.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "a2ef7d0c97d2652f.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,181 @@
+[ {
+  "uid" : "d2e140eb89421e51",
+  "name" : "Создание пользователя, который уже зарегистрирован",
+  "time" : {
+    "start" : 1769577789454,
+    "stop" : 1769577790394,
+    "duration" : 940
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a5fa982fb8c9bdae",
+  "name" : "Проверка доступности ингредиентов",
+  "time" : {
+    "start" : 1769577779754,
+    "stop" : 1769577780847,
+    "duration" : 1093
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "581c89438e7fe34d",
+  "name" : "Создание пользователя без email",
+  "time" : {
+    "start" : 1769577789167,
+    "stop" : 1769577789311,
+    "duration" : 144
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f3bb87cd53584e01",
+  "name" : "Создание заказа без ингредиентов",
+  "time" : {
+    "start" : 1769577788157,
+    "stop" : 1769577789161,
+    "duration" : 1004
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "41d994463642437d",
+  "name" : "Создание заказа с неверным хешем ингредиентов",
+  "time" : {
+    "start" : 1769577787225,
+    "stop" : 1769577788155,
+    "duration" : 930
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b1f9f5c80bd3e5fd",
+  "name" : "Создание уникального пользователя",
+  "time" : {
+    "start" : 1769577790523,
+    "stop" : 1769577791455,
+    "duration" : 932
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "aa8cdde6ed9e3364",
+  "name" : "Вход без пароля",
+  "time" : {
+    "start" : 1769577795659,
+    "stop" : 1769577796640,
+    "duration" : 981
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a2145c1e2e535c34",
+  "name" : "Создание пользователя без имени",
+  "time" : {
+    "start" : 1769577789315,
+    "stop" : 1769577789449,
+    "duration" : 134
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "903d55490106dfd1",
+  "name" : "Создание заказа с ингредиентами",
+  "time" : {
+    "start" : 1769577764944,
+    "stop" : 1769577778389,
+    "duration" : 13445
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7d0246a2882828d2",
+  "name" : "Создание заказа с null ингредиентами",
+  "time" : {
+    "start" : 1769577778642,
+    "stop" : 1769577779747,
+    "duration" : 1105
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "1f3b4674e497aec9",
+  "name" : "Создание заказа с авторизацией и валидными ингредиентами",
+  "time" : {
+    "start" : 1769577780851,
+    "stop" : 1769577785075,
+    "duration" : 4224
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "27ff13ab63a9cefa",
+  "name" : "Вход без email",
+  "time" : {
+    "start" : 1769577794584,
+    "stop" : 1769577795654,
+    "duration" : 1070
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a2ef7d0c97d2652f",
+  "name" : "Создание пользователя без пароля",
+  "time" : {
+    "start" : 1769577790399,
+    "stop" : 1769577790519,
+    "duration" : 120
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ea512c44442118c4",
+  "name" : "Создание заказа с одним неверным хешем среди валидных",
+  "time" : {
+    "start" : 1769577786234,
+    "stop" : 1769577787221,
+    "duration" : 987
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "454825b8e77fe83",
+  "name" : "Вход с неверным паролем",
+  "time" : {
+    "start" : 1769577791461,
+    "stop" : 1769577792554,
+    "duration" : 1093
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "be5b94f65064e8a8",
+  "name" : "Создание заказа без авторизации",
+  "time" : {
+    "start" : 1769577785084,
+    "stop" : 1769577786227,
+    "duration" : 1143
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "f671a143a52ea3ca",
+  "name" : "Вход с неверным email",
+  "time" : {
+    "start" : 1769577793610,
+    "stop" : 1769577794577,
+    "duration" : 967
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8282530b2a91a360",
+  "name" : "Вход под существующим пользователем",
+  "time" : {
+    "start" : 1769577792558,
+    "stop" : 1769577793607,
+    "duration" : 1049
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

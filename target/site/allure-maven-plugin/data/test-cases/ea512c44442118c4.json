@@ -1,0 +1,159 @@
+{
+  "uid" : "ea512c44442118c4",
+  "name" : "Создание заказа с одним неверным хешем среди валидных",
+  "fullName" : "tests.OrderCreationTest.createOrderWithMixedIngredientHashesShouldReturn500",
+  "historyId" : "706d6e89d8ac1b4b29ec42f3def256cf",
+  "time" : {
+    "start" : 1769577786234,
+    "stop" : 1769577787221,
+    "duration" : 987
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Создание уникального тестового пользователя",
+      "time" : {
+        "start" : 1769577786234,
+        "stop" : 1769577786235,
+        "duration" : 1
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "hasContent" : false,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Регистрация нового пользователя",
+      "time" : {
+        "start" : 1769577786235,
+        "stop" : 1769577786444,
+        "duration" : 209
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "user",
+        "value" : "models.User@683218c8"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Парсинг токенов из ответа",
+      "time" : {
+        "start" : 1769577786445,
+        "stop" : 1769577786483,
+        "duration" : 38
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "response",
+        "value" : "io.restassured.internal.RestAssuredResponseImpl@38a3c078"
+      }, {
+        "name" : "user",
+        "value" : "models.User@683218c8"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Создание заказа",
+      "time" : {
+        "start" : 1769577786483,
+        "stop" : 1769577786559,
+        "duration" : 76
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "ingredients",
+        "value" : "[61c0c5a71d1f82001bdaaa6c, invalid_hash_123, 61c0c5a71d1f82001bdaaa6d]"
+      }, {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Nzk5ZDNhOTg0MjcwMDAxYmUzZmY3YyIsImlhdCI6MTc2OTU3Nzc4NiwiZXhwIjoxNzY5NTc4OTg2fQ.CofGijzJRoh9jkcb0ptNJDMdGmHerDolgi7hZq106gM"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Удаление пользователя",
+      "time" : {
+        "start" : 1769577786560,
+        "stop" : 1769577787221,
+        "duration" : 661
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accessToken",
+        "value" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5Nzk5ZDNhOTg0MjcwMDAxYmUzZmY3YyIsImlhdCI6MTc2OTU3Nzc4NiwiZXhwIjoxNzY5NTc4OTg2fQ.CofGijzJRoh9jkcb0ptNJDMdGmHerDolgi7hZq106gM"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 5,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "tests"
+  }, {
+    "name" : "testClass",
+    "value" : "tests.OrderCreationTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "createOrderWithMixedIngredientHashesShouldReturn500"
+  }, {
+    "name" : "suite",
+    "value" : "tests.OrderCreationTest"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-HLRPAQP"
+  }, {
+    "name" : "thread",
+    "value" : "12920@DESKTOP-HLRPAQP.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "ea512c44442118c4.json",
+  "parameterValues" : [ ]
+}
