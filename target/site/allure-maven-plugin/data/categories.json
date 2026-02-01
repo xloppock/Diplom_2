@@ -7,13 +7,13 @@
       "name" : "1 expectation failed.\nExpected status code <401> but was <200>.\n",
       "children" : [ {
         "name" : "Создание заказа без авторизации",
-        "uid" : "be5b94f65064e8a8",
+        "uid" : "ef2f2a724ed9b962",
         "parentUid" : "5c5b8d4f37e62d5e06845d2a3a1b3b9e",
         "status" : "failed",
         "time" : {
-          "start" : 1769577785084,
-          "stop" : 1769577786227,
-          "duration" : 1143
+          "start" : 1769951448074,
+          "stop" : 1769951450525,
+          "duration" : 2451
         },
         "flaky" : false,
         "newFailed" : false,

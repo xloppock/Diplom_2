@@ -49,16 +49,6 @@ public class UserApi {
                 .get(Constants.USER_ENDPOINT);
     }
 
-    @Step("Создание уникального тестового пользователя")
-    public User createUniqueTestUser() {
-        String timestamp = String.valueOf(System.currentTimeMillis());
-        return new User(
-                "testuser_" + timestamp + "@mail.com",
-                "Test models.User " + timestamp,
-                "password123"
-        );
-    }
-
     @Step("Парсинг токенов из ответа")
     public void parseTokensFromResponse(Response response, User user) {
         if (response.statusCode() == 200) {

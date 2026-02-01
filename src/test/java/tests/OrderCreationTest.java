@@ -2,6 +2,7 @@ package tests;
 
 import clients.OrderApi;
 import clients.UserApi;
+import clients.UserCreation;
 import constants.Constants;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
@@ -15,16 +16,18 @@ import java.util.ArrayList;
 import static org.hamcrest.Matchers.*;
 import static org.apache.http.HttpStatus.*;
 import static io.restassured.RestAssured.given;
+import io.qameta.allure.Description;
 
 public class OrderCreationTest {
 
     private UserApi userApi = new UserApi();
     private OrderApi orderApi = new OrderApi();
+    private  UserCreation userCreation = new UserCreation();
     private User testUser;
 
     @Before
     public void setUp() {
-        testUser = userApi.createUniqueTestUser();
+        testUser = userCreation.createUniqueTestUser();
         Response registerResponse = userApi.register(testUser);
         registerResponse.then().statusCode(SC_OK);
         userApi.parseTokensFromResponse(registerResponse, testUser);
@@ -32,6 +35,7 @@ public class OrderCreationTest {
 
     @Test
     @DisplayName("Создание заказа с авторизацией и валидными ингредиентами")
+    @Description("Позитивный тест: проверка успешного создания заказа авторизованным пользователем с валидными ингредиентами. Ожидается статус 200, success: true и присвоенный номер заказа.")
     public void createOrderWithAuthAndValidIngredientsShouldBeSuccessful() {
         List<String> ingredients = Arrays.asList(
                 Constants.VALID_INGREDIENTS[0],
@@ -52,6 +56,7 @@ public class OrderCreationTest {
 
     @Test
     @DisplayName("Создание заказа без авторизации")
+    @Description("Негативный тест: попытка создания заказа без токена авторизации. Ожидается статус 401 с сообщением 'You should be authorised'.")
     public void createOrderWithoutAuthShouldReturn401() {
         List<String> ingredients = Arrays.asList(
                 Constants.VALID_INGREDIENTS[0],
@@ -68,6 +73,7 @@ public class OrderCreationTest {
 
     @Test
     @DisplayName("Создание заказа с ингредиентами")
+    @Description("Позитивный тест: создание заказа с несколькими (4) валидными ингредиентами, включая повторяющийся. Проверка успешного ответа и наличия номера заказа.")
     public void createOrderWithIngredientsShouldBeSuccessful() {
         List<String> ingredients = Arrays.asList(
                 Constants.VALID_INGREDIENTS[0],
@@ -87,6 +93,7 @@ public class OrderCreationTest {
 
     @Test
     @DisplayName("Создание заказа без ингредиентов")
+    @Description("Негативный тест: создание заказа с пустым списком ингредиентов. Ожидается статус 400 с сообщением 'Ingredient ids must be provided'.")
     public void createOrderWithoutIngredientsShouldReturn400() {
         List<String> ingredients = new ArrayList<>();
 
@@ -100,6 +107,7 @@ public class OrderCreationTest {
 
     @Test
     @DisplayName("Создание заказа с null ингредиентами")
+    @Description("Негативный тест: отправка запроса с пустым JSON телом (ingredients: null). Ожидается статус 400 с сообщением об обязательности ингредиентов.")
     public void createOrderWithNullIngredientsShouldReturn400() {
         Response response = given()
                 .header("Content-type", "application/json")
@@ -116,6 +124,7 @@ public class OrderCreationTest {
 
     @Test
     @DisplayName("Создание заказа с неверным хешем ингредиентов")
+    @Description("Негативный тест: использование несуществующих хешей ингредиентов. Ожидается статус 500 - внутренняя ошибка сервера.")
     public void createOrderWithInvalidIngredientHashShouldReturn500() {
         List<String> invalidIngredients = Arrays.asList(
                 "invalid_hash_1",
@@ -130,6 +139,7 @@ public class OrderCreationTest {
 
     @Test
     @DisplayName("Создание заказа с одним неверным хешем среди валидных")
+    @Description("Негативный тест: смешивание валидных и невалидных хешей ингредиентов в одном заказе. Ожидается статус 500.")
     public void createOrderWithMixedIngredientHashesShouldReturn500() {
         List<String> mixedIngredients = Arrays.asList(
                 Constants.VALID_INGREDIENTS[0],
@@ -145,6 +155,7 @@ public class OrderCreationTest {
 
     @Test
     @DisplayName("Проверка доступности ингредиентов")
+    @Description("Позитивный тест: получение списка всех доступных ингредиентов. Проверка успешного ответа и наличия данных.")
     public void getIngredientsShouldReturnValidData() {
         Response response = orderApi.getIngredients();
 

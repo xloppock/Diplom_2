@@ -13,20 +13,19 @@ public class OrderApi {
 
     @Step("Создание заказа")
     public Response createOrder(List<String> ingredients, String accessToken) {
-        Map<String, Object> body = new HashMap<>();
-        body.put("ingredients", ingredients);
+        Order order = new Order(ingredients);
 
         if (accessToken != null && !accessToken.isEmpty()) {
             return given()
                     .header("Content-type", "application/json")
                     .header("Authorization", accessToken)
-                    .body(body)
+                    .body(order)
                     .when()
                     .post(Constants.ORDERS_ENDPOINT);
         } else {
             return given()
                     .header("Content-type", "application/json")
-                    .body(body)
+                    .body(order)
                     .when()
                     .post(Constants.ORDERS_ENDPOINT);
         }
