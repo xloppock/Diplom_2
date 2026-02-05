@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.ArrayList;
 import static org.hamcrest.Matchers.*;
 import static org.apache.http.HttpStatus.*;
-import static io.restassured.RestAssured.given;
 import io.qameta.allure.Description;
 
 public class OrderCreationTest {
@@ -31,6 +30,13 @@ public class OrderCreationTest {
         Response registerResponse = userApi.register(testUser);
         registerResponse.then().statusCode(SC_OK);
         userApi.parseTokensFromResponse(registerResponse, testUser);
+    }
+
+    @After
+    public void tearDown() {
+        if (testUser != null && testUser.getAccessToken() != null) {
+            userApi.deleteUser(testUser.getAccessToken());
+        }
     }
 
     @Test
@@ -109,13 +115,8 @@ public class OrderCreationTest {
     @DisplayName("Создание заказа с null ингредиентами")
     @Description("Негативный тест: отправка запроса с пустым JSON телом (ingredients: null). Ожидается статус 400 с сообщением об обязательности ингредиентов.")
     public void createOrderWithNullIngredientsShouldReturn400() {
-        Response response = given()
-                .header("Content-type", "application/json")
-                .header("Authorization", testUser.getAccessToken())
-                .body("{}")
-                .when()
-                .post(Constants.ORDERS_ENDPOINT);
-
+        Response response = orderApi.createWithNullIngredients(testUser.getAccessToken()
+        );
         response.then()
                 .statusCode(SC_BAD_REQUEST)
                 .body("success", equalTo(false))
@@ -164,12 +165,5 @@ public class OrderCreationTest {
                 .body("success", equalTo(true))
                 .body("data", notNullValue())
                 .body("data.size()", greaterThan(0));
-    }
-
-    @After
-    public void tearDown() {
-        if (testUser != null && testUser.getAccessToken() != null) {
-            userApi.deleteUser(testUser.getAccessToken());
-        }
     }
 }

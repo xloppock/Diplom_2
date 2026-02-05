@@ -5,8 +5,6 @@ import constants.Constants;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
 import static io.restassured.RestAssured.given;
 
 public class OrderApi {
@@ -36,5 +34,15 @@ public class OrderApi {
         return given()
                 .when()
                 .get(Constants.INGREDIENTS_ENDPOINT);
+    }
+
+    @Step("Создание заказа с null ингридиентами")
+    public Response createWithNullIngredients(String accessToken) {
+        return given()
+                .header("Content-type","application/json")
+                .header("Authorization",accessToken)
+                .body("{}")
+                .when()
+                .post(Constants.ORDERS_ENDPOINT);
     }
 }

@@ -16,6 +16,18 @@ public class UserCreationTest {
     private UserApi userApi = new UserApi();
     private UserCreation userCreation = new UserCreation();
     private User createdUser;
+    private Response createUserResponse;
+
+    @After
+    public void tearDown() {
+        if (createdUser != null && createUserResponse != null) {
+            userApi.parseTokensFromResponse(createUserResponse, createdUser);
+
+            if (createdUser.getAccessToken() != null) {
+                userApi.deleteUser(createdUser.getAccessToken());
+            }
+        }
+    }
 
     @Test
     @DisplayName("Создание уникального пользователя")
@@ -23,18 +35,16 @@ public class UserCreationTest {
     public void createUniqueUserShouldBeSuccessful() {
         User uniqueUser = userCreation.createUniqueTestUser();
 
-        Response response = userApi.register(uniqueUser);
+        createUserResponse = userApi.register(uniqueUser);
+        createdUser = uniqueUser;
 
-        response.then()
+        createUserResponse.then()
                 .statusCode(SC_OK)
                 .body("success", equalTo(true))
                 .body("user.email", equalTo(uniqueUser.getEmail()))
                 .body("user.name", equalTo(uniqueUser.getName()))
                 .body("accessToken", startsWith("Bearer"))
                 .body("refreshToken", notNullValue());
-
-        userApi.parseTokensFromResponse(response, uniqueUser);
-        createdUser = uniqueUser;
     }
 
     @Test
@@ -44,8 +54,11 @@ public class UserCreationTest {
         User existingUser = userCreation.createUniqueTestUser();
 
         Response firstRegister = userApi.register(existingUser);
+
+        createdUser = existingUser;
+        createUserResponse = firstRegister;
+
         firstRegister.then().statusCode(SC_OK);
-        userApi.parseTokensFromResponse(firstRegister, existingUser);
 
         Response secondRegister = userApi.register(existingUser);
 
@@ -54,7 +67,6 @@ public class UserCreationTest {
                 .body("success", equalTo(false))
                 .body("message", equalTo("User already exists"));
 
-        userApi.deleteUser(existingUser.getAccessToken());
     }
 
     @Test
@@ -68,6 +80,9 @@ public class UserCreationTest {
         );
 
         Response response = userApi.register(userWithoutEmail);
+
+        createdUser = userWithoutEmail;
+        createUserResponse = response;
 
         response.then()
                 .statusCode(SC_FORBIDDEN)
@@ -87,6 +102,10 @@ public class UserCreationTest {
 
         Response response = userApi.register(userWithoutPassword);
 
+        createdUser = userWithoutPassword;
+        createUserResponse = response;
+
+
         response.then()
                 .statusCode(SC_FORBIDDEN)
                 .body("success", equalTo(false))
@@ -97,7 +116,6 @@ public class UserCreationTest {
     @DisplayName("Создание пользователя без имени")
     @Description("Негативный тест: регистрация пользователя без указания имени. Ожидается статус 403 с сообщением о обязательных полях.")
     public void createUserWithoutNameShouldReturn403() {
-        // Arrange
         User userWithoutName = new User(
                 "test@mail.com",
                 null, // нет имени
@@ -106,16 +124,12 @@ public class UserCreationTest {
 
         Response response = userApi.register(userWithoutName);
 
-        response.then()
+        createdUser = userWithoutName;
+        createUserResponse = response;
+
+                response.then()
                 .statusCode(SC_FORBIDDEN)
                 .body("success", equalTo(false))
                 .body("message", equalTo("Email, password and name are required fields"));
-    }
-
-    @After
-    public void tearDown() {
-        if (createdUser != null && createdUser.getAccessToken() != null) {
-            userApi.deleteUser(createdUser.getAccessToken());
-        }
     }
 }
